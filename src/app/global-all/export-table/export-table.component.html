@@ -1,0 +1,8 @@
+<div class="d-flex flex-row" style="margin-left: 10px;margin-top: 10px;" *ngIf="data">
+    <a *ngIf="showXlsBtn" (click)="exportExcel()" pTooltip="Export to excel" tooltipPosition="bottom"><img
+            src="/assets/images/001-excel.png" alt="excel" width="24"></a>
+    <a *ngIf="showPdfBtn" (click)="exportPdf()" pTooltip="Export to .pdf" tooltipPosition="bottom"><img
+            src="/assets/images/002-file.png" alt="pdf" width="24"></a>
+    <a *ngIf="showCsvBtn" (click)="exportCSV()" pTooltip="Export to .csv" tooltipPosition="bottom"><img
+            src="/assets/images/003-file-1.png" alt="csv" width="24"></a>
+</div>

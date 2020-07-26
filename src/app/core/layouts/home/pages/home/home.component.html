@@ -1,0 +1,75 @@
+    <!-- <div [ngClass]="{ 'layout-sidebar-active': sidebarActive }" class="layout-wrapper">
+        <app-header-top-admin></app-header-top-admin>
+        <app-menu></app-menu>
+        <app-header></app-header>
+
+        <app-navigation></app-navigation>
+
+        <div class="layout-main">
+            <div class="layout-content">
+                <div class="templates">
+                    <router-outlet></router-outlet>
+                </div>
+                <div class="section-body"></div>
+            </div>
+
+            <app-footer></app-footer>
+
+            <div class="layout-main-mask"></div>
+        </div>
+    </div> -->
+
+    <!-- Header-navigation -->
+    <app-header></app-header>
+    <!-- / Header-navigation -->
+
+    <!-- Favorite-menu -->
+    <app-home-favorite-menu></app-home-favorite-menu>
+    <!-- / Favorite-menu -->
+
+    <!-- Bootstrap row -->
+    <div class="row" id="body-row">
+        <div class="sidebar-main__inner">
+            <!-- Sidebar -->
+            <div id="sidebar-container" class="sidebar-expanded d-none d-md-block">
+                <!-- Home-menu -->
+                <app-home-menu></app-home-menu>
+                <!-- / Home-menu -->
+            </div>
+            <!-- sidebar-container END -->
+        </div>
+    </div>
+
+    <div class="main-content col content p-0 left-250" style="
+                                            top: 90px;
+                                            position: absolute;
+                                            right: 0;
+                                            bottom: 0;
+                                            overflow: auto;
+                                            ">
+        <!-- <div class="container-fluid"> -->
+        <!-- MAIN -->
+        <div class="col content p-0">
+            <!-- <div class="container-fluid"> -->
+
+            <!-- Loading-Login-Toast -->
+            <!-- / Loading-Login-Toast -->
+
+            <!-- Loading-Toast -->
+            <app-loader-service-toast></app-loader-service-toast>
+            <!-- / Loading-Toast -->
+
+            <!-- Modules -->
+            <router-outlet></router-outlet>
+            <!-- / Modules -->
+            <!-- <app-footer></app-footer> -->
+
+            <div class="layout-main-mask"></div>
+        </div>
+
+        <!-- </div> -->
+        <!-- Main Col END -->
+        <!-- </div> -->
+        <!-- body-row END -->
+    </div>
+    <!-- / Sidebar -->

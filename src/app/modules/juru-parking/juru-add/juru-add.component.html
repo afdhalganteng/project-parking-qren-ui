@@ -1,0 +1,42 @@
+<div class="ui-g-12" [formGroup]="formReady">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Nama</label>
+                </div>
+                <div class="ui-g-7 border-line">
+                    <input type="text" formControlName="nama" pInputText class="custom-input-text" style="border:none;"
+                        placeholder="Input Name" />
+                </div>
+            </div>
+
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Email</label>
+                </div>
+                <div class="ui-g-7 border-line">
+                    <input type="text" formControlName="email" pInputText class="custom-input-text" style="border:none;"
+                        placeholder="Input Email" />
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Password</label>
+                </div>
+                <div class="ui-g-7 border-line">
+                    <input type="text" formControlName="password" pInputText class="custom-input-text"
+                        style="border:none;" placeholder="Input Password" />
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Merchant</label>
+                </div>
+                <div class="ui-g-7">
+                    {{merchant}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

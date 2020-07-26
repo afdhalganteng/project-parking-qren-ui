@@ -1,0 +1,14 @@
+<p-dialog [(visible)]="isDelShow" (onHide)="onClose()" responsive="true" modal="true" closeOnEscape="true"
+    [style]="{width: '500px'}" [modal]="true">
+    <p-header>
+        <span>
+            Information
+        </span>
+    </p-header>
+    <div class="py-2">
+        <p class="text-center">
+            No data selected. Please select one or more data to continue.
+        </p>
+    </div>
+</p-dialog>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

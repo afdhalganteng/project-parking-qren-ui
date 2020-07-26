@@ -1,0 +1,19 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<div class="ui-g-12">
+    <app-appearance-submenu [subMenu]="subMenu"></app-appearance-submenu>
+
+    <p-card class="w-100 card-style">
+        <p-header class="title-header">
+            <div class="d-flex pl-1 header-title">
+                <div class="mr-auto px-2 header-title-text">
+                    <p class="h5 font-weight-bold text-uppercase ">
+                        {{ title | translate }}
+                    </p>
+                </div>
+            </div>
+        </p-header>
+
+    </p-card>
+</div>
+<router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>

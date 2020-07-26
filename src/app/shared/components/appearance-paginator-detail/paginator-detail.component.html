@@ -1,0 +1,12 @@
+<div class="m-2">
+    {{ 'showing' | translate }}
+    {{ table.totalRecords < 1 ? 0 : table.first + 1 }} to
+    {{
+        table.totalRecords > 0
+            ? table.rows + table.first <= table.totalRecords
+                ? table.rows + table.first
+                : table.totalRecords
+            : 0
+    }}
+    {{ 'of' | translate }} {{ table.totalRecords ? table.totalRecords : 0 }}
+</div>

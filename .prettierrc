@@ -1,0 +1,14 @@
+{
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "htmlWhitespaceSensitivity": "ignore",
+    "jsxBracketSameLine": true,
+    "jsxSingleQuote": false,
+    "bracketSpacing": true,
+    "printWidth": 80,
+    "newline-before-return": true,
+    "no-duplicate-variable": [true, "check-parameters"],
+    "no-var-keyword": true
+}

@@ -1,0 +1,8 @@
+<p-toast [showTransitionOptions]="'0ms'" [baseZIndex]="5000" [modal]="true" position="top-center" key="loading"
+    styleClass="service-toast">
+    <ng-template let-message pTemplate="message">
+        <div class="d-flex flex-column text-center">
+            <p>{{ message.detail }}</p>
+        </div>
+    </ng-template>
+</p-toast>

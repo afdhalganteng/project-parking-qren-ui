@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<div class="ui-g-12">
+    <app-appearance-submenu [subMenu]="subMenu"></app-appearance-submenu>
+
+    <p-card>
+        <p-header class="title-header">
+            <div class="d-flex pl-1 header-title">
+                <div class="mr-auto px-2 header-title-text">
+                    <p class="h5 font-weight-bold text-uppercase ">
+                        {{ title | translate }}
+                    </p>
+                </div>
+                <!-- General-toolbar- -->
+
+                <div *ngIf="isAddNew" class="btn-group px-2" style="margin: 6px;">
+                    <button (click)="onCancel()" pButton type="button" label="{{ 'cancel' | translate }}"
+                        class="btn-back"></button>
+                    <button (click)="onSave()" pButton type="button" label="{{ 'Save' | translate }}"
+                        class="btn-update"></button>
+                </div>
+
+                <div *ngIf="isView" class="btn-group px-2" style="margin: 6px;">
+                    <button (click)="onBack()" pButton type="button" label="{{ 'back' | translate }}"
+                        class="btn-back"></button>
+                    <button (click)="onAdd()" pButton type="button" label="{{ 'add' | translate }}"
+                        class="btn-update"></button>
+                </div>
+
+                <div *ngIf="isInDetail" class="btn-group px-2" style="margin: 6px;">
+                    <button (click)="onCancel()" pButton type="button" label="{{ 'cancel' | translate }}"
+                        class="btn-back"></button>
+                    <button (click)="onDelete()" pButton type="button" label="{{ 'delete' | translate }}"
+                        class="btn-delete mr-2"></button>
+                    <button (click)="onEdit()" pButton type="button" label="{{ 'edit' | translate }}"
+                        class="btn-edit"></button>
+                </div>
+                <!-- / General-toolbar -->
+            </div>
+        </p-header>
+
+    </p-card>
+</div>
+
+<div class="ui-g-12 p-3">
+    <router-outlet (activate)="onRouterOutletActivate($event)"></router-outlet>
+
+</div>

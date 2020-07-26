@@ -1,0 +1,32 @@
+
+\:host ::ng-deep .submenu--navbar
+    margin: 0
+    padding: 0 20px
+    min-height: 30px
+    list-style: none
+    background-color: white
+    position: fixed
+    top: 75px
+    right: 0
+    left: 220px
+    height: 30px
+    border-bottom: 1px solid #999999
+    z-index: 3
+
+    .dropdown-submenu > a:after
+        content: "\f0da"
+        float: right
+        border: none
+        font-family: 'FontAwesome', sans-serif
+
+a#dropdown-custom.dropdown-item.active
+    border-left: 3px solid #1e88e5 !important
+    color: #1e88e5 !important
+    padding-left: 12px !important
+    background-color: #f1f5f9 !important
+
+a.dropdown-toggle.parent-active
+    border-top: 4px solid #1e88e5 !important
+    color: #1e88e5 !important
+    padding: 5px
+    background-color: #f1f5f9 !important

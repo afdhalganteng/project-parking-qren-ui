@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light primary__nav w-100 navbar-fixed submenu--navbar">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <ng-container *ngFor="let parent of subMenu">
+                <li class="nav-item px-4">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"
+                            style="font-weight: 500;color: #0087E0;font-size:14px;"
+                            [ngClass]=" parent.border ? 'parent-active' : ''">
+                            {{ parent.label }}
+                        </a>
+                        <div class=" dropdown-menu ">
+                            <ng-container *ngFor=" let child of parent.childs">
+                                <a id="dropdown-custom" class="dropdown-item" [routerLink]="[child.link]"
+                                    [routerLinkActive]="['active']">
+                                    <span class="dropdown-item.active dropdown-item:hover dropdown-item:focus">
+                                        {{ child.label | translate }}
+                                    </span>
+                                </a>
+                                <div class="dropdown-submenu">
+                                    <ng-container *ngFor="let sub of child.childsSub">
+                                        <a class="dropdown-item" [routerLink]="[sub.link]"
+                                            [routerLinkActive]="['active']">
+                                            <span class="dropdown-item.active dropdown-item:hover dropdown-item:focus">
+                                                {{ sub.label | translate }}
+                                            </span>
+                                        </a>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </li>
+            </ng-container>
+        </ul>
+    </div>
+</nav>

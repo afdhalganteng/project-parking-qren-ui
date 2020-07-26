@@ -1,0 +1,17 @@
+<ul *ngFor="let menu of modules" class="list-group">
+
+    <div style="position: absolute;bottom: 12%;left: 0;right: 0;">
+        <a (click)="onToggleActive()" [ngClass]="{ 'active': isActive === true }" data-toggle="sidebar-colapse"
+            class="bg-white list-group-item list-group-item-action d-flex align-items-center">
+        </a>
+    </div>
+
+    <a [routerLink]="menu.path" (click)="menuClick(menu.path)" [ngClass]=" menu.border ? 'is-active' : ''"
+        class="bg-white list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+            <span class="{{ menu.icon }} fa-fw mr-3"></span>
+            <span class="menu-collapsed">{{ menu.name }}</span>
+            <span class="submenu-icon ml-auto"></span>
+        </div>
+    </a>
+</ul>

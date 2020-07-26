@@ -1,0 +1,8 @@
+<div class="favorite-container wrapper">
+    <ul class="list-group list-group-horizontal-sm favorite-menu--list-group">
+        <li *ngFor="let fav of favMenus" class="list-group-item">
+            <i class="far fa-star">&nbsp;</i>
+            <a [routerLink]="fav.path">{{ fav.name }}</a>
+        </li>
+    </ul>
+</div>

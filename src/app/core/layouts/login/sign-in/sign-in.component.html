@@ -1,0 +1,60 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="sign-in">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid form-signin">
+        <div class="ui-grid-row my-2">
+            <div class="ui-grid-col-12">
+                <img class="profile-img" src="/assets/qren2.jpeg" style="width: 150px;height: 150px;" alt="QRIN-Logo" />
+            </div>
+        </div>
+        <div class="ui-grid-row my-2">
+            <div class="ui-grid-col-12">
+                <h1 class="sub-title">
+                    Enter your Username and Password.
+                </h1>
+            </div>
+        </div>
+        <div *ngIf="username.invalid && username.dirty" class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <p-message *ngIf="username.errors['required']" severity="error" text="Username is required"></p-message>
+                <p-message *ngIf="username.errors['pattern']" severity="error" text="Username must be an alphanumberic">
+                </p-message>
+            </div>
+        </div>
+        <div *ngIf="password.invalid && password.dirty" class="ui-grid-row">
+            <div class="ui-grid-col-12">
+                <p-message *ngIf="password.errors['required']" severity="error" text="Password is required"></p-message>
+            </div>
+        </div>
+        <div class="ui-grid-row my-3">
+            <div class="ui-grid-col-12">
+                <span class="ui-float-label">
+                    <input pInputText formControlName="username" type="text" autofocus />
+                </span>
+            </div>
+        </div>
+        <div class="ui-grid-row my-3">
+            <div class="ui-grid-col-12">
+                <span class="ui-float-label">
+                    <input pInputText formControlName="password" type="password" />
+                </span>
+            </div>
+        </div>
+        <!--<div class="ui-grid-row my-3">
+            <div class="ui-grid-col-12 recaptcha-container">
+                <re-captcha formControlName="g-recaptcha-response"></re-captcha>
+            </div>
+        </div>-->
+        <div class="ui-grid-row my-3">
+            <div class="ui-grid-col-12">
+                <div class="d-flex">
+                    <div class="flex-grow-1">
+                    </div>
+                    <div class="mt-1">
+                        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-sm btn-login">
+                            Log In
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

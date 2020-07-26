@@ -1,0 +1,40 @@
+<p-blockUI [blocked]="!jur">
+    <div class="ui-g-12" class="child">
+        <p-progressSpinner [style]="{width: '50px', height: '50px'}" strokeWidth="8"></p-progressSpinner>
+    </div>
+</p-blockUI>
+<div class="ui-g-12">
+    <div class="ui-g-12">
+        <div class="ui-g-6">
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Merchant</label>
+                </div>
+                <div class="ui-g-7">
+                    {{merchant?.merchantApiKey?.nama || "-"}}
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-g-4">
+                    <label>Email</label>
+                </div>
+                <div class="ui-g-7">
+                    {{merchant?.merchantApiKey?.email || "-"}}
+                </div>
+            </div>
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid p-1">
+                <div class="ui-g-12">
+                    <div class="ui-g-4">
+                        <label>Tarif</label>
+                    </div>
+                    <div class="ui-g-7 border-line">
+                        <p-dropdown #dd class="form-dropdown" dropdownIcon="fas fa-caret-down"
+                            placeholder='Motor : {{merchant?.idTarif?.motor}}  Mobil : {{merchant?.idTarif?.mobil}} Truk : {{merchant?.idTarif?.truk}} No Ticket : {{merchant?.idTarif?.noTicket}}'
+                            [options]="tarifData" (onChange)="onSelectTarif($event)" appendTo="body" filter="true">
+                        </p-dropdown>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

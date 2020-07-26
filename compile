@@ -1,0 +1,13 @@
+#!/bin/bash
+
+env=${1}
+
+echo "Install dependencies..."
+npm install
+
+# Compiling sources
+ng build --configuration=${env}
+
+# Copying compiling files to web
+sudo rm -rf /usr/share/nginx/html/*
+cp -r ./dist/qren-parking/* /var/www/html/*
