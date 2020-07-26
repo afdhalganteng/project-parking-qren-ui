@@ -28,86 +28,102 @@
                     </div>
                 </div>
             </div>
-            <p-card header="Parking Data" styleClass="time-dashboard--card title-card">
-                <p-table #dt [value]="dataDashboard$ | async " [columns]="colums" [scrollable]="true" [paginator]="true"
-                    [rows]="10" class="custom-pagination" dataKey="id">
-                    <ng-template pTemplate="colgroup" let-columns>
-                        <colgroup>
-                            <col *ngFor="let col of columns" style="width:250px">
-                        </colgroup>
-                    </ng-template>
-                    <ng-template pTemplate="header" let-columns>
-                        <tr>
-                            <td class="text-center">
-                                Invoice Id
-                            </td>
-                            <td class="text-center">
-                                Amount
-                            </td>
-                            <td class="text-center">
-                                Tanggal Masuk
-                            </td>
-                            <td class="text-center">
-                                Tanggal Keluar
-                            </td>
-                            <td class="text-center">
-                                Jenis Kendaraan
-                            </td>
-                            <td class="text-center">
-                                Payment Method
-                            </td>
-                            <td class="text-center">
-                                No Plat
-                            </td>
-                            <td class="text-center">
-                                Source of Fund
-                            </td>
-                            <td class="text-center">
-                                Status
-                            </td>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="body" let-trans>
-                        <tr>
-                            <td class="text-center">
-                                {{ trans?.invoiceId}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.amount || "-"}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.enteredDate || "-"}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.exitDate || "-"}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.jenisKendaraan || "-"}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.paymentMethod || "-"}}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.platNo || "-" }}
-                            </td>
-                            <td class="text-center">
-                                {{ trans?.sourceOfFund || "-"}}
-                            </td>
+            <div class="ui-g-12">
+                <div class="ui-g-11">
 
-                            <td class="text-center">
-                                {{ trans?.status || "pending"}}
-                            </td>
-                        </tr>
-                    </ng-template>
-                    <ng-template pTemplate="emptymessage" let-columns>
-                        <tr>
-                            <td [attr.colspan]="columns.length">
-                                {{'noRecordsFound' | translate}}
-                            </td>
-                        </tr>
-                    </ng-template>
-                </p-table>
-            </p-card>
+                </div>
+                <div class="ui-g-1" *ngIf="showExport">
+                    <app-export-table showPdfBtn=true [data]="data" [filename]="fileName" showXlsBtn=true>
+                    </app-export-table>
+                </div>
+                <p-card header="Parking Data" styleClass="time-dashboard--card title-card">
+
+                    <p-table #dt [value]="dataDashboard$ | async " [columns]="colums" [scrollable]="true"
+                        [paginator]="true" [rows]="10" class="custom-pagination" dataKey="id">
+                        <ng-template pTemplate="colgroup" let-columns>
+                            <colgroup>
+                                <col *ngFor="let col of columns" style="width:250px">
+                            </colgroup>
+                        </ng-template>
+                        <ng-template pTemplate="header" let-columns>
+                            <tr>
+                                <th class="text-center">
+                                    Invoice Id
+                                </th>
+                                <th class="text-center">
+                                    Amount
+                                </th>
+                                <th class="text-center">
+                                    Tanggal Masuk
+                                </th>
+                                <th class="text-center">
+                                    Tanggal Keluar
+                                </th>
+                                <th class="text-center">
+                                    Jenis Kendaraan
+                                </th>
+                                <th class="text-center">
+                                    Payment Method
+                                </th>
+                                <th class="text-center">
+                                    No Plat
+                                </th>
+                                <th class="text-center">
+                                    Source of Fund
+                                </th>
+                                <th class="text-center">
+                                    Status
+                                </th>
+                                <th class="text-center">
+                                    Juru Parkir
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-trans>
+                            <tr>
+                                <td class="text-center">
+                                    {{ trans?.invoiceId}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.amount || "-"}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.enteredDate || "-"}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.exitDate || "-"}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.jenisKendaraan || "-"}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.paymentMethod || "-"}}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.platNo || "-" }}
+                                </td>
+                                <td class="text-center">
+                                    {{ trans?.sourceOfFund || "-"}}
+                                </td>
+
+                                <td class="text-center">
+                                    {{ trans?.status || "pending"}}
+                                </td>
+
+                                <td class="text-center">
+                                    {{ trans?.idjuru?.nama || "-"}}
+                                </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage" let-columns>
+                            <tr>
+                                <td [attr.colspan]="columns.length">
+                                    {{'noRecordsFound' | translate}}
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </p-card>
+            </div>
         </div>
     </div>
-</div>

@@ -5,6 +5,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { LovModule } from 'app/shared/components/lov/lov.module';
 import { LoggerFormModule } from 'app/shared/components/logger-form/logger-form.module';
 import { DashboardListComponent } from './dashboard-list/dashboard-list.component';
+import { GlobalAllModule } from 'app/global-all/global-all.module';
 
 
 
@@ -12,7 +13,7 @@ import { DashboardListComponent } from './dashboard-list/dashboard-list.componen
   declarations: [DashboardComponent, DashboardListComponent],
   imports: [
     CommonModule,
-    SharedModule, LovModule, LoggerFormModule
+    SharedModule, LovModule, LoggerFormModule, GlobalAllModule
 
   ]
 })

@@ -13,17 +13,20 @@ import { DatePipe } from '@angular/common';
 })
 export class DashboardListComponent implements OnInit {
   title = "Parking Dashboard"
-  colums: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9,];
+  colums: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   dataDashboard$: Observable<any>;
   formReady: FormGroup
   dataCount$: Observable<any>;
+  fileName: string;
 
   constructor(private dasboardService: DashboardService, private autService: AuthenticationService
     , private formBuilder: FormBuilder, private datepipe: DatePipe) {
+    this.fileName = "Report Parking " + this.autService.getSession().user.nama + " " + this.datepipe.transform(new Date(), "yyyy-MM-dd");
     this.onLoadData();
     this.createForm();
   }
-
+  data: any[] = []
+  showExport: boolean = false;
   ngOnInit() {
   }
 
@@ -36,6 +39,26 @@ export class DashboardListComponent implements OnInit {
   }
 
   onLoadData() {
+    this.dasboardService.getJuruAll().subscribe(res => {
+      this.data = res.map(data => {
+        return {
+          "invoice": data.invoiceId ? data.invoiceId : "-",
+          "Amount": data.amount ? data.amount : "-",
+          "Tanggal Masuk": data.enteredDate ? data.enteredDate : "-",
+          "Tanggal Keluar": data.exitDate ? data.exitDate : "-",
+          "Jenis Kendaraan": data.jenisKendaraan ? data.jenisKendaraan : "-",
+          "Payment Method": data.paymentMethod ? data.paymentMethod : "-",
+          "No Plat": data.platNo ? data.platNo : "-",
+          "QREN Invoice": data.qrenInvoice ? data.qrenInvoice : "-",
+          "Source of Fund ": data.sourceOfFund ? data.sourceOfFund : "-",
+          "Status": data.status ? data.status : "Pending",
+          "Juru Parkir": data.idjuru.nama ? data.idjuru.nama : "-"
+        }
+      })
+      this.showExport = true;
+      console.log("asdasd", this.data);
+
+    })
     this.dataDashboard$ = this.dasboardService.geJuruList(this.autService.getSession().user.merchantApiKey);
     this.dataCount$ = this.dasboardService.getCount();
 

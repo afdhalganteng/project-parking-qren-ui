@@ -26,6 +26,12 @@ export class DashboardService {
         );
     }
 
+    getJuruAll() {
+        const param = new HttpParams()
+            .set("merchant", this.authService.getSession().user.merchantApiKey);
+        return this.api.get('transaksi-report-merchant', param);
+    }
+
     geJuruListDate(merchant: any) {
 
         const param = new HttpParams()
