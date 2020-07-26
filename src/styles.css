@@ -217,6 +217,7 @@ a.list-group-item.list-group-item-action.flex-column.align-items-start.is-active
     border-left: 3px solid #1e88e5 !important;
     color: #1e88e5 !important;
     padding-left: 12px !important;
+    border-radius: 2%;
     background-color: #f1f5f9 !important;
 }
 
