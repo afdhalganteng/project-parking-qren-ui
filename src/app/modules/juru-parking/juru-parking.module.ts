@@ -8,6 +8,7 @@ import { JuruAddComponent } from './juru-add/juru-add.component';
 import { SharedModule } from 'app/shared/shared.module';
 import { LovModule } from 'app/shared/components/lov/lov.module';
 import { LoggerFormModule } from 'app/shared/components/logger-form/logger-form.module';
+import { GlobalAllModule } from 'app/global-all/global-all.module';
 
 
 
@@ -15,7 +16,7 @@ import { LoggerFormModule } from 'app/shared/components/logger-form/logger-form.
   declarations: [JuruParkingComponent, JuruListComponent, JuruDetailComponent, JuruEditComponent, JuruAddComponent],
   imports: [
     CommonModule,
-    SharedModule, LovModule, LoggerFormModule
+    SharedModule, LovModule, LoggerFormModule, GlobalAllModule
   ]
 })
 export class JuruParkingModule { }

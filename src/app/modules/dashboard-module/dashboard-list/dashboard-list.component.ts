@@ -14,6 +14,11 @@ import { DatePipe } from '@angular/common';
 export class DashboardListComponent implements OnInit {
   title = "Parking Dashboard"
   colums: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  actions: any[] = [
+    { label: "ALL", value: null },
+    { label: "Success", value: "Suc" },
+    { label: "Pending", value: "Pending" }
+  ];
   dataDashboard$: Observable<any>;
   formReady: FormGroup
   dataCount$: Observable<any>;
@@ -28,6 +33,12 @@ export class DashboardListComponent implements OnInit {
   data: any[] = []
   showExport: boolean = false;
   ngOnInit() {
+  }
+
+  onSelectAction(event) {
+    console.log("event", event);
+    this.dataDashboard$ = this.dasboardService.geJuruListStatus(event.value);
+
   }
 
   createForm() {
@@ -59,7 +70,7 @@ export class DashboardListComponent implements OnInit {
       console.log("asdasd", this.data);
 
     })
-    this.dataDashboard$ = this.dasboardService.geJuruList(this.autService.getSession().user.merchantApiKey);
+    this.dataDashboard$ = this.dasboardService.geJuruListStatus();
     this.dataCount$ = this.dasboardService.getCount();
 
   }
@@ -82,7 +93,7 @@ export class DashboardListComponent implements OnInit {
 
   }
   onRefresh() {
-    this.dataDashboard$ = this.dasboardService.geJuruList(this.autService.getSession().user.merchantApiKey);
+    this.dataDashboard$ = this.dasboardService.geJuruListStatus();
 
   }
 }

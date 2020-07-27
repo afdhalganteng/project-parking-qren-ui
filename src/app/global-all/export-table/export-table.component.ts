@@ -28,7 +28,7 @@ export class ExportTableComponent implements OnInit {
   }
 
   exportPdf() {
-    let cols = Object.keys(this.data[0]);
+    let cols = this.data.length > 0 ? Object.keys(this.data[0]) : [];
     let rows = [];
     for (let data of this.data) {
       rows.push(Object.values(data));

@@ -5,6 +5,7 @@ import { HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { onConstructPieChart, onConstructBarChart } from './construct-chart';
+import { stat } from 'fs';
 
 @Injectable({
     providedIn: 'root',
@@ -13,11 +14,18 @@ export class DashboardService {
     constructor(private api: ApiService, private authService: AuthenticationService) { }
 
 
-    geJuruList(merchant: any) {
 
-        const param = new HttpParams()
-            .set("merchant", this.authService.getSession().user.merchantApiKey);
-        return this.api.get('transaksi-report-merchant', param).pipe(
+    geJuruListStatus(merchant?: any) {
+
+        const param = merchant ? new HttpParams()
+            .set("merchant", this.authService.getSession().user.merchantApiKey).set("status", merchant) :
+            new HttpParams()
+                .set("merchant", this.authService.getSession().user.merchantApiKey)
+
+        const uri = merchant ? "transaksi-report-status" : "transaksi-report-merchant"
+
+
+        return this.api.get(uri, param).pipe(
             map((data) => {
                 console.log("data", data);
 
@@ -29,6 +37,13 @@ export class DashboardService {
     getJuruAll() {
         const param = new HttpParams()
             .set("merchant", this.authService.getSession().user.merchantApiKey);
+        return this.api.get('transaksi-report-merchant', param);
+    }
+
+    getJuruAllStatus(status) {
+        const param = new HttpParams()
+            .set("merchant", this.authService.getSession().user.merchantApiKey)
+            .set("status", status);
         return this.api.get('transaksi-report-merchant', param);
     }
 

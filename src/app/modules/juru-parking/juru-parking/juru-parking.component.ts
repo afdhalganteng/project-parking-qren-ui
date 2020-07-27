@@ -20,6 +20,8 @@ export class JuruParkingComponent implements OnInit {
   id: string;
   subMenu: any[] = []
 
+
+
   constructor(
     private jurs: JuruService, private message: MessageBoxService,
     private loc: Location, private router: Router, private route: ActivatedRoute,

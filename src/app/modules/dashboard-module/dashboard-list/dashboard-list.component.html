@@ -29,13 +29,26 @@
                 </div>
             </div>
             <div class="ui-g-12">
-                <div class="ui-g-11">
+                <div class="ui-g-12">
+                    <div class="ui-g-4 border-line">
+                        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid p-1">
+                            <div class="ui-g-12">
+                                <p-dropdown #dd class="form-dropdown" dropdownIcon="fas fa-caret-down"
+                                    [options]="actions" (onChange)="onSelectAction($event)" appendTo="body"
+                                    filter="true">
+                                </p-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-7">
 
+                    </div>
+                    <div class="ui-g-1" *ngIf="showExport">
+                        <app-export-table showPdfBtn=true [data]="data" [filename]="fileName" showXlsBtn=true>
+                        </app-export-table>
+                    </div>
                 </div>
-                <div class="ui-g-1" *ngIf="showExport">
-                    <app-export-table showPdfBtn=true [data]="data" [filename]="fileName" showXlsBtn=true>
-                    </app-export-table>
-                </div>
+
                 <p-card header="Parking Data" styleClass="time-dashboard--card title-card">
 
                     <p-table #dt [value]="dataDashboard$ | async " [columns]="colums" [scrollable]="true"

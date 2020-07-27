@@ -9,6 +9,7 @@
 <p-card>
     <div class="ui-helper-clearfix">
         <div class="ui-g-12" *ngIf="juruParkir$ | async as emp; else blok">
+
             <p-table [value]="emp.data" (onLazyLoad)="onTableLazyLoad($event)" [totalRecords]="emp.count" [lazy]="true"
                 [paginator]="true" [rows]="rowsPerPage" [rowsPerPageOptions]="rowsPerPageOptions"
                 class="custom-pagination">
