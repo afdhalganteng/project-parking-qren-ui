@@ -8,6 +8,7 @@ import { LoginPageComponent } from './core/layouts/login/pages/login/login.compo
 
 
 import { SignInComponent } from './core/layouts/login/sign-in/sign-in.component';
+import { PageNotFoundComponent } from './core/layouts/error/pages/page-not-found/page-not-found.component';
 
 
 
